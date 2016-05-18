@@ -3,3 +3,5 @@
 .settings
 /.externalToolBuilders
 /vendor/
+composer.lock
+composer.phar
