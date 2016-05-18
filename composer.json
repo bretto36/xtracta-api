@@ -1,0 +1,16 @@
+{
+	"name" : "bretto36/xtracta-api",
+	"description" : "API for use with Xtracta Document Capture Systems",
+	"type" : "library",
+	"require" : {
+		"guzzlehttp/guzzle" : "dev-master",
+		"illuminate/html" : "5.0.0",
+		"phpunit/phpunit" : "4.8.26"
+	},
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Brett Bailey",
+			"email" : "brett@sitementor.com.au"
+		}
+	]
+}

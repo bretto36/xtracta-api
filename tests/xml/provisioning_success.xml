@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provisioning_response>
+    <status>200</status>
+    <message>The request has been successfully processed</message>
+    <group>
+        <group_id>1234</group_id>
+        <group_name>Test</group_name>
+    </group>
+    <billing_plan/>
+    <workflow>
+        <workflow_id>1111</workflow_id>
+        <workflow_name>Accounts Payable</workflow_name>
+        <workflow_email>test@akl.xtracta.com</workflow_email>
+        <workflow_file_transfer>test:test@akl.xtracta.com</workflow_file_transfer>
+        <source_workflow_id>1112</source_workflow_id>
+    </workflow>
+    <database>
+        <database_id>1234</database_id>
+        <database_name>Suppliers (WF 1111)</database_name>
+        <column>
+            <column_id>19977</column_id>
+            <column_name>Name</column_name>
+        </column>
+        <column>
+            <column_id>19978</column_id>
+            <column_name>Reference</column_name>
+        </column>
+    </database>
+    <api_key>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</api_key>
+</provisioning_response>
