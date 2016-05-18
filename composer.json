@@ -12,5 +12,10 @@
 			"name" : "Brett Bailey",
 			"email" : "brett@sitementor.com.au"
 		}
-	]
+	],
+	"autoload" : {
+		"classmap" : [
+			"src/"
+		]
+	}
 }
