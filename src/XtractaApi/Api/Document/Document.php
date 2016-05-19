@@ -12,7 +12,7 @@ class Document
 
     public $document_url;
 
-    public $image_url;
+    public $image_urls = array();
 
     public $fields = array();
 
@@ -25,7 +25,13 @@ class Document
             $this->status = (string)$jsonObject->document_status;
             $this->api_status = (string)$jsonObject->api_download_status;
             $this->document_url = (string)$jsonObject->document_url;
-            $this->image_url = (string)$jsonObject->image_url;
+            if (is_array($jsonObject->image_url)) {
+                foreach ($jsonObject->image_url as $image_url) {
+                    $this->image_urls[] = (string)$image_url;
+                }
+            } else {
+                $this->image_urls[] = (string)$jsonObject->image_url;
+            }
 
             if (is_array($jsonObject->field_data->field)) {
                 foreach ($jsonObject->field_data->field as $fieldXml) {
