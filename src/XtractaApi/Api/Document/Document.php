@@ -33,20 +33,24 @@ class Document
                 $this->image_urls[] = (string)$jsonObject->image_url;
             }
 
-            if (is_array($jsonObject->field_data->field)) {
-                foreach ($jsonObject->field_data->field as $fieldXml) {
-                    $this->fields[] = new Field($fieldXml);
+            if (isset($jsonObject->field_data) && isset($jsonObject->field_data->field)) {
+                if (is_array($jsonObject->field_data->field)) {
+                    foreach ($jsonObject->field_data->field as $fieldXml) {
+                        $this->fields[] = new Field($fieldXml);
+                    }
+                } else {
+                    $this->fields[] = new Field($jsonObject->field_data->field);
                 }
-            } else {
-                $this->fields[] = new Field($jsonObject->field_data->field);
             }
 
-            if (is_array($jsonObject->field_data->field_set)) {
-                foreach ($jsonObject->field_data->field_set as $fieldSetXml) {
-                    $this->field_sets[(string)$fieldSetXml->field_set_name] = new FieldSet($fieldSetXml);
+            if (isset($jsonObject->field_data) && isset($jsonObject->field_data->field_set)) {
+                if (is_array($jsonObject->field_data->field_set)) {
+                    foreach ($jsonObject->field_data->field_set as $fieldSetXml) {
+                        $this->field_sets[(string)$fieldSetXml->field_set_name] = new FieldSet($fieldSetXml);
+                    }
+                } else {
+                    $this->field_sets[(string)$jsonObject->field_data->field_set->field_set_name] = new FieldSet($jsonObject->field_data->field_set);
                 }
-            } else {
-                $this->field_sets[(string)$jsonObject->field_data->field_set->field_set_name] = new FieldSet($jsonObject->field_data->field_set);
             }
         }
     }
