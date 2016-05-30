@@ -18,6 +18,8 @@ class Document
 
     public $field_sets = array();
 
+    public $rejections = array();
+
     public function __construct($jsonObject = null)
     {
         if ($jsonObject !== null) {
@@ -33,23 +35,36 @@ class Document
                 $this->image_urls[] = (string)$jsonObject->image_url;
             }
 
-            if (isset($jsonObject->field_data) && isset($jsonObject->field_data->field)) {
-                if (is_array($jsonObject->field_data->field)) {
-                    foreach ($jsonObject->field_data->field as $fieldXml) {
-                        $this->fields[] = new Field($fieldXml);
+            if (isset($jsonObject->field_data)) {
+                // Process the field data
+                if (isset($jsonObject->field_data->field)) {
+                    if (is_array($jsonObject->field_data->field)) {
+                        foreach ($jsonObject->field_data->field as $fieldXml) {
+                            $this->fields[] = new Field($fieldXml);
+                        }
+                    } else {
+                        $this->fields[] = new Field($jsonObject->field_data->field);
                     }
-                } else {
-                    $this->fields[] = new Field($jsonObject->field_data->field);
+                }
+
+                if (isset($jsonObject->field_data->field_set)) {
+                    if (is_array($jsonObject->field_data->field_set)) {
+                        foreach ($jsonObject->field_data->field_set as $fieldSetXml) {
+                            $this->field_sets[(string)$fieldSetXml->field_set_name] = new FieldSet($fieldSetXml);
+                        }
+                    } else {
+                        $this->field_sets[(string)$jsonObject->field_data->field_set->field_set_name] = new FieldSet($jsonObject->field_data->field_set);
+                    }
                 }
             }
 
-            if (isset($jsonObject->field_data) && isset($jsonObject->field_data->field_set)) {
-                if (is_array($jsonObject->field_data->field_set)) {
-                    foreach ($jsonObject->field_data->field_set as $fieldSetXml) {
-                        $this->field_sets[(string)$fieldSetXml->field_set_name] = new FieldSet($fieldSetXml);
+            if (isset($jsonObject->rejection->reason)) {
+                if (is_array($jsonObject->rejection->reason)) {
+                    foreach ($jsonObject->rejection->reason as $rejectionXml) {
+                        $this->rejections[] = new Rejection($rejectionXml);
                     }
                 } else {
-                    $this->field_sets[(string)$jsonObject->field_data->field_set->field_set_name] = new FieldSet($jsonObject->field_data->field_set);
+                    $this->rejections[] = new Rejection($jsonObject->rejection->reason);
                 }
             }
         }

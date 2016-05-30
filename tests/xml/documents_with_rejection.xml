@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<documents_response>
+	<status>200</status>
+	<message>The request has been successfully processed</message>
+	<documents_matching_query>4</documents_matching_query>
+	<documents_number>
+		<total>4</total>
+		<pre-processing>0</pre-processing>
+		<indexing>0</indexing>
+		<qa>0</qa>
+		<reject>4</reject>
+		<output-in-progress>0</output-in-progress>
+		<completed>0</completed>
+	</documents_number>
+	<items_per_page>20</items_per_page>
+	<page>1</page>
+	<document revision="2">
+		<document_id>123456789</document_id>
+		<document_status>reject</document_status>
+		<number_of_pages>1</number_of_pages>
+		<api_download_status>active</api_download_status>
+		<free_form/>
+		<classification>full</classification>
+		<document_url>https://web1-akl.xtracta.com/datasource/1/dd/a3/abcdef.pdf</document_url>
+		<image_url>https://web1-akl.xtracta.com/datasource/1/dc/54/abcdef-1-0800.jpg</image_url>
+		<field_data>
+			<field>
+				<field_id>123456</field_id>
+				<field_name>Order Number</field_name>
+				<field_value>WO20 00 22</field_value>
+			</field>
+		</field_data>
+		<rejection>
+			<reason>
+				<message>The Order Number could not be found in the list of orders</message>
+				<validation_rule>
+					<type>DATABASE_LIST</type>
+				</validation_rule>
+				<linked_field>
+					<field_id>12345</field_id>
+				</linked_field>
+			</reason>
+		</rejection>
+	</document>
+</documents_response>
