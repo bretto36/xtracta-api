@@ -47,6 +47,7 @@ class DocumentsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($response->documents));
 
         foreach ($response->documents as $document) {
+            $this->assertEquals('reject', $document->status);
             $this->assertEquals(1, count($document->rejections));
 
             foreach ($document->rejections as $rejection) {
