@@ -152,7 +152,18 @@ class XtractaApi
     {
         $requestObject = new \XtractaApi\Api\Document\UserInterface\GetRequest($apiKey, $documentId, $callbackUrl, $expires, $afterApiDownloadStatus);
 
-        $responseObject = new \XtractaApi\Api\Document\UserInterface\GetResponse($this->call($requestObject));
+        try {
+            $response = $this->call($requestObject);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() == \Illuminate\Http\Response::HTTP_NOT_FOUND) {
+                return false;
+            }
+            if ($e->getResponse()->getStatusCode() == \Illuminate\Http\Response::HTTP_CONFLICT) {
+                return false;
+            }
+        }
+
+        $responseObject = new \XtractaApi\Api\Document\UserInterface\GetResponse($response);
 
         if ($responseObject->getStatusCode() == \Illuminate\Http\Response::HTTP_OK) {
             return $responseObject->getUserInterfaceObject();
