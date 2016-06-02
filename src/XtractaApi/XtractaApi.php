@@ -186,6 +186,19 @@ class XtractaApi
         return false;
     }
 
+    public function deleteGroup($apiKey, $groupId)
+    {
+        $requestObject = new \XtractaApi\Api\Group\DeleteRequest($apiKey, $groupId);
+
+        $responseObject = new \XtractaApi\Api\Group\DeleteResponse($this->call($requestObject));
+
+        if ($responseObject->getStatusCode() == \Illuminate\Http\Response::HTTP_OK) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * Executes the request
      *

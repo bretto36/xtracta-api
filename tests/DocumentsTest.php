@@ -15,7 +15,6 @@ class DocumentsTest extends \PHPUnit_Framework_TestCase
     {
         $mock = new MockHandler([
             new Response(200, [], file_get_contents('tests/xml/documents_with_rejection.xml')),
-            new Response(200, [], file_get_contents('tests/xml/documents_with_rejection.xml')),
         ]);
 
         $handler = HandlerStack::create($mock);
@@ -32,7 +31,6 @@ class DocumentsTest extends \PHPUnit_Framework_TestCase
     public function test_list_documents_returns_documents_with_a_rejection_reason()
     {
         $mock = new MockHandler([
-            new Response(200, [], file_get_contents('tests/xml/documents_with_rejection.xml')),
             new Response(200, [], file_get_contents('tests/xml/documents_with_rejection.xml')),
         ]);
 
