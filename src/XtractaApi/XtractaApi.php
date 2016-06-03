@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 
 use XtractaApi\Api\AbstractRequest;
 use XtractaApi\Api\Document\Documents;
+use XtractaApi\Api\Tracking\TrackingResponses;
 
 /**
  * Class API
@@ -194,6 +195,40 @@ class XtractaApi
 
         if ($responseObject->getStatusCode() == \Illuminate\Http\Response::HTTP_OK) {
             return true;
+        }
+
+        return false;
+    }
+
+    public function getWorkflowTracking($apiKey, $workflowId, $status = null, $type = null, $page = null, $items_per_page = null, $order = null, $timezone = null, $detailed = false)
+    {
+        $requestObject = new \XtractaApi\Api\Tracking\ListRequest($apiKey, $workflowId, $status, $type, $page, $items_per_page, $order, $timezone, $detailed);
+
+        try {
+            $response = $this->call($requestObject);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() == \Illuminate\Http\Response::HTTP_NOT_FOUND) {
+                return new TrackingResponses();
+            }
+        }
+
+        $responseObject = new \XtractaApi\Api\Tracking\ListResponse($response);
+
+        if ($responseObject->getStatusCode() == \Illuminate\Http\Response::HTTP_OK) {
+            return $responseObject->getObject();
+        }
+
+        return false;
+    }
+
+    public function getDocumentTracking($apiKey, $documentId, $status = null, $type = null, $page = null, $items_per_page = null, $order = null, $timezone = null, $detailed = false)
+    {
+        $requestObject = new \XtractaApi\Api\Tracking\GetRequest($apiKey, $documentId, $status, $type, $page, $items_per_page, $order, $timezone, $detailed);
+
+        $responseObject = new \XtractaApi\Api\Tracking\GetResponse($this->call($requestObject));
+
+        if ($responseObject->getStatusCode() == \Illuminate\Http\Response::HTTP_OK) {
+            return $responseObject->getObject();
         }
 
         return false;

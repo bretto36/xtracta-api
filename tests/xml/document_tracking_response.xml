@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracking_response>
+    <status>200</status>
+    <message>The request has been successfully processed</message>
+    <input>
+        <id>12345</id>
+        <type>email</type>
+        <received>2016-05-31T12:52:41+12:00</received>
+        <status>OK</status>
+        <file>
+            <status>Done</status>
+            <filename>File1.pdf</filename>
+            <file_url>https://web1-akl.xtracta.com/datasource/1/60/f1/aaaaa.pdf</file_url>
+            <document_id>1111</document_id>
+            <activity>
+                <description>Processing</description>
+                <username>System</username>
+                <time>2016-05-31T12:52:59+12:00</time>
+            </activity>
+            <activity>
+                <description>Awaiting rejection review</description>
+                <username>System</username>
+                <time>2016-05-31T12:53:49+12:00</time>
+            </activity>
+        </file>
+        <file>
+            <status>Done</status>
+            <filename>File2.pdf</filename>
+            <file_url>https://web1-akl.xtracta.com/datasource/1/dd/ad/bbbbb.pdf</file_url>
+            <document_id>1112</document_id>
+            <activity>
+                <description>Processing</description>
+                <username>System</username>
+                <time>2016-05-31T12:52:59+12:00</time>
+            </activity>
+            <activity>
+                <description>Awaiting rejection review</description>
+                <username>System</username>
+                <time>2016-05-31T12:53:48+12:00</time>
+            </activity>
+        </file>
+        <file>
+            <status>Done</status>
+            <filename>File3.pdf</filename>
+            <file_url>https://web1-akl.xtracta.com/datasource/1/a9/de/ccccc.pdf</file_url>
+            <document_id>1113</document_id>
+            <activity>
+                <description>Processing</description>
+                <username>System</username>
+                <time>2016-05-31T12:53:01+12:00</time>
+            </activity>
+            <activity>
+                <description>Awaiting rejection review</description>
+                <username>System</username>
+                <time>2016-05-31T12:54:38+12:00</time>
+            </activity>
+            <activity>
+                <description>Complete</description>
+                <username>API user</username>
+                <time>2016-05-31T12:57:21+12:00</time>
+            </activity>
+        </file>
+        <from>Test Person &lt;test@test.com&gt;</from>
+        <subject>other files</subject>
+        <body />
+    </input>
+</tracking_response>
