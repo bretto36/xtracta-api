@@ -1,2 +1,2 @@
 # xtracta-api
-Xtracta API endpoint connector for laravel
+Xtracta API endpoint connector in PHP
