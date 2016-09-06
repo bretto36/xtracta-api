@@ -1,21 +1,21 @@
 {
-	"name" : "bretto36/xtracta-api",
-	"description" : "API for use with Xtracta Document Capture Systems",
-	"type" : "library",
-	"require" : {
-		"guzzlehttp/guzzle" : "6.2.0",
-		"illuminate/html" : "5.0.0",
-		"phpunit/phpunit" : "4.8.26"
-	},
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "Brett Bailey",
-			"email" : "brett@sitementor.com.au"
-		}
-	],
-	"autoload" : {
-		"classmap" : [
-			"src/"
-		]
-	}
+  "name" : "bretto36/xtracta-api",
+  "description" : "API for use with Xtracta Document Capture Systems",
+  "type" : "library",
+  "require" : {
+    "guzzlehttp/guzzle" : "6.2.0",
+    "illuminate/html" : "5.0.0",
+    "phpunit/phpunit": "~5.0"
+  },
+  "license" : "MIT",
+  "authors" : [{
+      "name" : "Brett Bailey",
+      "email" : "brett@sitementor.com.au"
+    }
+  ],
+  "autoload" : {
+    "classmap" : [
+      "src/"
+    ]
+  }
 }
