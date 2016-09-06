@@ -3,7 +3,7 @@
   "description" : "API for use with Xtracta Document Capture Systems",
   "type" : "library",
   "require" : {
-    "guzzlehttp/guzzle" : "6.2.0",
+    "guzzlehttp/guzzle" : "6.2.*",
     "illuminate/html" : "5.0.0",
     "phpunit/phpunit": "~5.0"
   },
